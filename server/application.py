@@ -1,27 +1,24 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
 
-app= Flask(__name__)
+app= Flask(__name__, static_folder="client", static_url_path='')
 api = Api(app)
 
+# Data
 users = [
 	{
-	"name":"Nicholas",
-	"age": 42,
-	"occupation":"Net Admin"
+	"name":"John",
+	"age": 25,
+	"occupation":"Developer"
 	},
 	{
-        "name":"Elvin",
-        "age": 32,
-        "occupation":"Do Admin"
-        },
-	{
-        "name":"Jas",
-        "age": 42,
-        "occupation":"aldskfjNet Admin"
-        }
+    "name":"Aron",
+    "age": 36,
+    "occupation":"Test Engineer"
+    }
 ]
 
+# Resources
 class User(Resource):
 	def get(self,name):
 		for user in users:
@@ -71,5 +68,6 @@ class User(Resource):
 		users = [user for user in users if user["name"] != name]
 		return "{} is deleted.".format(name), 200
 
-api.add_resource(User, "/user/<string:name>")
-app.run(debug=True)
+# Endpoints
+api.add_resource(User, "/user/<string:name>") # Resource 'User' is the class name
+#app.run(debug=True) # this is moved to wsgi.py
