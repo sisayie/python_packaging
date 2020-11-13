@@ -1,6 +1,7 @@
 Python packaging
 
 # Directory Structure
+```
 ├── LICENSE
 ├── README.md
 ├── client
@@ -11,7 +12,7 @@ Python packaging
 │   ├── application.py
 ├── wsgi.ini
 └── wsgi.py
-
+```
 # Installing requirements
 pip install -r requirements.txt
 
