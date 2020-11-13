@@ -23,6 +23,7 @@ flask run
 http://127.0.0.1:5000/user/Anie
 
 Test from cli clients. If you get error when running it on Windows prompt, use curl -g to turn off globbing like curl -g --header ...
+
 curl --header "Content-Type: application/json" --request POST --data '{"name":"Anie","age":56, "occupation":"Programmer"}' http://127.0.0.1:5000/user
 
 curl --request POST \
